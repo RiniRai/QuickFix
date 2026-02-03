@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join QuickFix</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Split layout */
+        .split-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left section */
+        .split-left {
+            flex: 1;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .split-left h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .split-left p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Right section */
+        .split-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f2f5;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .split-container {
+                flex-direction: column;
+            }
+
+            .split-left {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="split-container">
+
+    <!-- LEFT SIDE -->
+    <div class="split-left">
+        <div>
+            <h1>Join QuickFixhub</h1>
+            <p>Connect instantly with trusted experts for every service you need.</p>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE (YOUR EXISTING FORM) -->
+    <div class="split-right">
+        <div class="glass-wrapper">
+            <div class="glass-card">
+                <div class="glass-header">
+                    <div class="logo-circle">🛠️</div>
+                    <h1>Join Quickfixhub</h1>
+                    <p>Connecting you to expert services instantly.</p>
+                </div>
+
+   <form action="{{ url_for('signup') }}" method="POST" onsubmit="return validateRole()">
+
+  <div class="glass-input-box">
+    <input type="text" name="username" placeholder="Choose a unique username" required>
+  </div>
+
+  <div class="glass-input-box">
+    <input type="password" name="password" placeholder="Create a strong password" required>
+  </div>
+
+  <!-- 🔥 ROLE SELECTION (ADD HERE) -->
+
+<input type="hidden" name="user_type" id="user_type">
+  <div class="role-container">
+    <div class="role-card active" onclick="selectRole('homeowner')">
+      <span class="icon">👤</span>
+      <h3>I need services</h3>
+    </div>
+
+    <div class="role-card" onclick="selectRole('provider')">
+    
+        <span class="icon">🛠</span>
+      <h3>I provide services</h3>
+    </div>
+  </div>
+  
+
+  <button type="submit" class="glass-btn" on-click="return validateRole()">Get Started</button>
+</form>
+
+                <div class="glass-footer">
+                    <p>Already a member? <a href="{{ url_for('login') }}">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+ function selectRole(role, element) {
+  document.getElementById("user_type").value = role;
+
+  document.querySelectorAll(".role-card").forEach(card => {
+    card.classList.remove("active");
+  });
+
+  element.classList.add("active");
+}
+
+function validateRole() {
+  const role = document.getElementById("user_type").value;
+  if (!role) {
+    alert("Please select how you want to use QuickFixhub");
+    return false;
+  }
+  return true;
+}
+</script>
+
+</body>
+</html>

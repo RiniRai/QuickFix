@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFix Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<div class="split-container">
+    <div class="split-left login-overlay">
+        <div class="content-overlay">
+            <h1>Welcome Back</h1>
+            <p>Login to manage your service requests.</p>
+        </div>
+    </div>
+
+    <div class="split-right">
+        <div class="form-card">
+            <div class="form-header">
+                <span class="brand-icon">🛠️</span>
+                <h2>Login</h2>
+            </div>
+            
+            <form action="{{ url_for('login') }}" method="POST">
+                <div class="glass-input-box">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="glass-input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="glass-btn">Sign In</button>
+            </form>
+
+            <div class="glass-footer">
+                <p>New to QuickFix? <a href="{{ url_for('signup') }}">Create Account</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
