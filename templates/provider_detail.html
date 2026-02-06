@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="provider-hero">
+    <div class="provider-overlay">
+        <div class="provider-header">
+            <div class="provider-avatar">
+               <img src="{{ url_for('static', filename='images/' + provider.image_url) }}" alt="{{ provider.name }}">
+
+            </div>
+            <div class="provider-info">
+                <h1>{{ provider.name }}</h1>
+                <p>{{ provider.service_type }} | {{ provider.location }}</p>
+                <span class="rating">⭐ {{ provider.rating }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="provider-details">
+    <div class="details-container content-glass">
+
+        <div class="about-provider">
+            <h2>About {{ provider.name }}</h2>
+            <p>{{ provider.about }}</p>
+        </div>
+
+        <div class="services-offered">
+            <h2>Services Offered</h2>
+            <ul>
+                {% for service in provider.services %}
+                    <li>{{ service.name }} - ₹{{ service.price }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="booking-section">
+            <h2>Book This Service</h2>
+           <form action="{{ url_for('book_service', provider_id=provider.id) }}" method="POST">
+
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Select Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes" placeholder="Enter any instructions..."></textarea>
+
+                <button type="submit" class="book-btn">Book Now</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="reviews-section content-glass">
+
+    <h2>Customer Reviews</h2>
+    <div class="reviews-container">
+        {% for review in provider.reviews %}
+        <div class="review-card">
+            <p class="reviewer-name">{{ review.user }}</p>
+            <span class="review-rating">⭐ {{ review.rating }}</span>
+            <p class="review-text">{{ review.comment }}</p>
+        </div>
+        {% else %}
+        <p>No reviews yet. Be the first to leave a review!</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="similar-providers content-glass">
+
+    <h2>Similar Providers</h2>
+    <div class="similar-cards">
+        {% for sp in similar_providers %}
+        <div class="service-card">
+           <div class="avatar">
+   <img src="{{ url_for('static', filename='images/' + sp.image_url) if sp.image_url else url_for('static', filename='images/default-avatar.png') }}"
+     alt="{{ sp.name }}">
+
+</div>
+
+            <h3>{{ sp.name }}</h3>
+            <p>{{ sp.service_type }}</p>
+            <p>{{ sp.location }}</p>
+            <div class="card-footer">
+                <span class="rating">⭐ {{ sp.rating }}</span>
+               
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

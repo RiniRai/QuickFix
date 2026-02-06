@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page-hero">
+    <h1>{{ service_name }} Providers</h1>
+    <p>Trusted professionals near you</p>
+</div>
+
+
+<div class="services-grid">
+    {% for p in providers %}
+    <div class="service-card">
+        <div class="avatar">
+            <img 
+                src="{{ url_for('static', filename='images/' ~ p.image_url) }}"
+                alt="{{ p.name }}"
+                class="provider-img"
+            >
+        </div>
+
+        <h3>{{ p.name }}</h3>
+        <p>{{ p.location }}</p>
+        <span>⭐ {{ p.rating }}</span>
+
+        <a href="{{ url_for('provider_detail', provider_id=p.id) }}">
+            Learn More →
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="services-section">
+    <h1 class="section-title">Browse Services</h1>
+
+    <div class="services-grid">
+        <a href="{{ url_for('service_providers', service_name='electrician') }}">
+    Electrician
+</a>
+
+
+        <a href="/services/plumber" class="service-card">
+            <img src="/static/images/Plumber.jpg" alt="Plumber">
+            <h3>Plumber</h3>
+        </a>
+
+        <a href="/services/carpenter" class="service-card">
+            <img src="/static/images/carpenter.jpg" alt="Carpenter">
+            <h3>Carpenter</h3>
+        </a>
+
+        <a href="/services/cleaning" class="service-card">
+            <img src="/static/images/cleaning.jpg" alt="Cleaning">
+            <h3>Cleaning</h3>
+        </a>
+    </div>
+</section>
+
+{% endblock %}

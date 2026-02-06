@@ -101,12 +101,12 @@
 
 <input type="hidden" name="user_type" id="user_type">
   <div class="role-container">
-    <div class="role-card active" onclick="selectRole('homeowner')">
+    <div class="role-card active" onclick="selectRole('homeowner',this)">
       <span class="icon">👤</span>
       <h3>I need services</h3>
     </div>
 
-    <div class="role-card" onclick="selectRole('provider')">
+    <div class="role-card" onclick="selectRole('provider',this)">
     
         <span class="icon">🛠</span>
       <h3>I provide services</h3>
@@ -114,7 +114,8 @@
   </div>
   
 
-  <button type="submit" class="glass-btn" on-click="return validateRole()">Get Started</button>
+ <button type="submit" class="glass-btn">
+Get Started</button>
 </form>
 
                 <div class="glass-footer">

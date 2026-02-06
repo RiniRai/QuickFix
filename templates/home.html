@@ -18,7 +18,8 @@
 
 
 <div class="content-after-scroll">
-    <div class="services-section">
+    <div class="services-section" id="services-offer">
+
     <div class="services-container">
         <h2 class="services-title">Services We Offer</h2>
         <p class="services-subtitle">
@@ -30,42 +31,62 @@
                 <div class="icon-circle">🔧</div>
                 <h3>Plumbing</h3>
                 <p>Professional plumbing services for repairs and installations</p>
-                <a href="#">Learn More →</a>
+              <a href="{{ url_for('service_providers', service_name='plumbing') }}">
+    Learn More →
+</a>
+
+
+
             </div>
 
             <div class="service-card">
                 <div class="icon-circle">⚡</div>
                 <h3>Electrical</h3>
                 <p>Licensed electricians for all your electrical needs</p>
-                <a href="#">Learn More →</a>
+               <a href="{{ url_for('service_providers', service_name='electrical') }}">
+    Learn More →
+</a>
+
             </div>
 
             <div class="service-card">
                 <div class="icon-circle">🧹</div>
                 <h3>Cleaning</h3>
                 <p>Thorough cleaning services for homes and offices</p>
-                <a href="#">Learn More →</a>
+                <a href="{{ url_for('service_providers', service_name='cleaning') }}">
+    Learn More →
+</a>
+
             </div>
 
             <div class="service-card">
                 <div class="icon-circle">🌱</div>
                 <h3>Landscaping</h3>
                 <p>Transform your outdoor spaces with expert landscaping</p>
-                <a href="#">Learn More →</a>
+                <a href="{{ url_for('service_providers', service_name='landscaping') }}">
+    Learn More →
+</a>
+
             </div>
 
             <div class="service-card">
                 <div class="icon-circle">🎨</div>
                 <h3>Painting</h3>
                 <p>Quality painting services for interior and exterior</p>
-                <a href="#">Learn More →</a>
+                <a href="{{ url_for('service_providers', service_name='painting') }}">
+    Learn More →
+</a>
+
             </div>
 
             <div class="service-card">
                 <div class="icon-circle">🪚</div>
                 <h3>Carpentry</h3>
                 <p>Custom woodwork and furniture repairs</p>
-                <a href="#">Learn More →</a>
+               <a href="{{ url_for('service_providers', service_name='carpentry') }}">
+    Learn More →
+</a>
+
             </div>
         </div>
     </div>
@@ -79,7 +100,7 @@
     <div class="cards-wrapper">
         <!-- CARD -->
         <div class="service-card">
-            <div class="avatar"></div>
+            <div class="avatar"><img src="static/images/avatar.jpg" alt=""></div>
             <h3>Cleaning Services</h3>
             <p>Abhijit Jha</p>
             <p>Howrah, West Bengal</p>
@@ -93,7 +114,8 @@
         <!-- repeat cards -->
 
         <div class="service-card">
-            <div class="avatar"></div>
+            
+            <div class="avatar"><img src="static/images/avatar.jpg" alt=""></div>
             <h3>Cleaning Services</h3>
             <p>Ajit choudhary</p>
             <p>Howrah, West Bengal</p>
@@ -105,7 +127,7 @@
         </div>
 
         <div class="service-card">
-            <div class="avatar"></div>
+            <div class="avatar"><img src="static/images/avatar.jpg" alt=""></div>
             <h3>Cleaning Services</h3>
             <p>kshitij</p>
             <p>Howrah, West Bengal</p>

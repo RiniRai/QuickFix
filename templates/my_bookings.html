@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="booking-container">
+    <h2 class="booking-title">My Booking History</h2>
+
+    {% if bookings %}
+        <div class="booking-list">
+        {% for booking in bookings %}
+            <div class="booking-card">
+                <p><strong>Provider ID:</strong> {{ booking.provider_id }}</p>
+                <p><strong>Date:</strong> {{ booking.date }}</p>
+                <p><strong>Time:</strong> {{ booking.time }}</p>
+                <p><strong>Notes:</strong> {{ booking.notes }}</p>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-booking">No bookings found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

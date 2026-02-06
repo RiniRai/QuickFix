@@ -18,9 +18,29 @@
         <ul class="nav-links">
             <li><a href="{{ url_for('home') }}" class="nav-btn">Home</a></li>
             <li><a href="{{ url_for('about') }}" class="nav-btn">About</a></li>
+            <li><a href="{{ url_for('my_bookings') }}" class="nav-btn">My Bookings</a></li>
+
+
+            <li>
+                <a href="{{ url_for('home') }}#featured-services" class="nav-btn">
+                    Browse Services
+                </a>
+            </li>
+
+            <li><a href="#services-offer" class="nav-btn">Service Providers</a></li>
 
             {% if 'user_id' in session %}
-                <li><a href="{{ url_for('logout') }}" class="nav-btn">Logout</a></li>
+                <!-- PROFILE DROPDOWN -->
+                <li class="nav-profile">
+                    <button class="nav-btn profile-btn">
+                        👤 Profile
+                    </button>
+
+                    <div class="profile-dropdown">
+                        <a href="{{ url_for('profile') }}">My Profile</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                </li>
             {% else %}
                 <li><a href="{{ url_for('login') }}" class="nav-btn">Login</a></li>
                 <li><a href="{{ url_for('signup') }}" class="nav-btn">Sign Up</a></li>
